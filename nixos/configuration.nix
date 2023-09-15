@@ -67,6 +67,12 @@
     gitui
   ];
 
+  fonts.packages = with pkgs; [
+    fira-code
+    fira-code-symbols
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+  ];
+
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [

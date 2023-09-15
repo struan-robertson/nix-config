@@ -56,7 +56,19 @@
     userEmail = "contact@struanrobertson.co.uk";
   };
 
-  programs.wezterm.enable = true;
+  programs.wezterm = { 
+    enable = true;
+    extraConfig = ''
+      local wezterm = require 'wezterm'
+
+      return {
+        color_scheme = 'nord',
+        font = wezterm.font 'FiraCode Nerd Font',
+        hide_tab_bar_if_only_one_tab = true,
+        window_background_opacity = 0.4,
+      }
+    '';
+  };
 
   programs.firefox.enable = true;
 
