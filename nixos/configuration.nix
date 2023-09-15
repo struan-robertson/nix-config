@@ -65,6 +65,7 @@
     git
     nnn
     gitui
+    helix
   ];
 
   hardware.opengl = {

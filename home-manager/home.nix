@@ -56,6 +56,11 @@
     userEmail = "contact@struanrobertson.co.uk";
   };
 
+  programs.wezterm.enable = true;
+
+  programs.firefox.enable = true;
+  
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
