@@ -45,7 +45,6 @@
 
   home.packages = with pkgs; [ 
     neofetch
-    nnn
   ];
 
   # Enable home-manager and git

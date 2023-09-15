@@ -63,6 +63,8 @@
     vim
     wget
     git
+    nnn
+    gitui
   ];
 
   hardware.opengl = {
