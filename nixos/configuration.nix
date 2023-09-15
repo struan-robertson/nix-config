@@ -73,7 +73,7 @@
   ];
 
   programs.fish = {
-    enabled = true;
+    enable = true;
     shellAbbrs = {
       icat = "wezterm imgcat";
       ssh = "wezterm ssh";
