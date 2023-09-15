@@ -5,5 +5,5 @@
   wayland.windowManager.hyprland.extraConfig = ''
     $mod = SUPER
 
-  ''
+  '';
 }
