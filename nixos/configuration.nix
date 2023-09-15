@@ -65,6 +65,9 @@
     git
     nnn
     gitui
+    ripgrep
+    fd
+    bat
 
     # Fish plugins
     fishPlugins.pure
