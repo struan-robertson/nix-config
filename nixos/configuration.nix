@@ -72,7 +72,16 @@
     fishPlugins.pisces
   ];
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enabled = true;
+    shellAbbrs = {
+      icat = "wezterm imgcat";
+      ssh = "wezterm ssh";
+      emacs = "emacsclient -t";
+      n = "nnn";
+      N = "sudo nnn";
+    };
+  };
 
   fonts.packages = with pkgs; [
     fira-code
