@@ -11,7 +11,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
  
-    ./hyprland.nix
+    ./hypr/hyprland.nix
   ];
 
   nixpkgs = {
@@ -59,6 +59,11 @@
   programs.wezterm.enable = true;
 
   programs.firefox.enable = true;
+
+  programs.helix = {
+    enable = true;
+    settings.theme = "nord";
+  };
   
 
   # Nicely reload system units when changing configs
