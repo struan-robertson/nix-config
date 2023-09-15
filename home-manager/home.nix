@@ -47,6 +47,13 @@
     neofetch
   ];
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Original-Classic";
+    size = 22;
+  };
+
   # Enable home-manager and git
   programs.home-manager.enable = true;
 
