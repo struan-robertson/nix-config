@@ -12,7 +12,7 @@
     # ./nvim.nix
  
     ./hypr/hyprland.nix
-    ./zsh.nix
+    ./fish.nix
   ];
 
   nixpkgs = {
