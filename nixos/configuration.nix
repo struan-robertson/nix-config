@@ -65,7 +65,14 @@
     git
     nnn
     gitui
+
+    # Fish plugins
+    fishPlugins.pure
+    fishPlugins.puffer
+    fishPlugins.pisces
   ];
+
+  programs.fish.enable = true;
 
   fonts.packages = with pkgs; [
     fira-code
@@ -103,6 +110,7 @@
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
   };
+  users.defaultUserShell = pkgs.fish;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
