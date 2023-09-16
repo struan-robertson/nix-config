@@ -11,7 +11,8 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
  
-    ./hypr/hyprland.nix
+    ./Desktop/hypr/hyprland.nix
+    ./Desktop/waybar/waybar.nix
     ./fish.nix
   ];
 

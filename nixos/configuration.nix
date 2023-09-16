@@ -82,6 +82,8 @@
     fira-code
     fira-code-symbols
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    font-awesome
+    inter
   ];
 
   hardware.opengl = {
