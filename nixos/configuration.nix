@@ -68,6 +68,7 @@
     ripgrep
     fd
     bat
+    wl-clipboard
 
     # Fish plugins
     fishPlugins.pure
@@ -75,18 +76,7 @@
     fishPlugins.pisces
   ];
 
-  programs.fish = {
-    enable = true;
-    shellAbbrs = {
-      icat = "wezterm imgcat";
-      ssh = "wezterm ssh";
-      emacs = "emacsclient -t";
-      n = "nnn";
-      N = "sudo nnn";
-    };
-  };
-
-  programs.thefuck.enable = true;
+  programs.fish.enable = true; 
 
   fonts.packages = with pkgs; [
     fira-code
