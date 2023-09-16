@@ -46,6 +46,7 @@
 
   home.packages = with pkgs; [ 
     neofetch
+    fzf
   ];
 
   home.pointerCursor = {
@@ -76,6 +77,11 @@
         window_background_opacity = 0.4,
       }
     '';
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
   };
 
   programs.firefox.enable = true;
