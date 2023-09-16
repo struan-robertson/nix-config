@@ -13,9 +13,9 @@
       "wlr/workspaces" = {
         format = "{icon}";
         format-icons = {
-          1 = "1 <span font='Font Awesome 6 Free 11'></span>";
-          2 = "2 <span font='Font Awesome 6 Free 11'></span>";
-          3 = "3 <span font='Font Awesome 6 Free 11'></span>";
+          "1" = "1 <span font='Font Awesome 6 Free 11'></span>";
+          "2" = "2 <span font='Font Awesome 6 Free 11'></span>";
+          "3" = "3 <span font='Font Awesome 6 Free 11'></span>";
         };
         on-click = "activate";
         sort-by-number = true;
