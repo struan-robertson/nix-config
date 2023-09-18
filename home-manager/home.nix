@@ -14,6 +14,8 @@
     ./Desktop/waybar/waybar.nix
 
     ./fish.nix
+
+    ./Emacs/emacs.nix
     
   ];
 
