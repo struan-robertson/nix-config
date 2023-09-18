@@ -31,6 +31,7 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
+      inputs.emacs-overlay.overlay
     ];
     # Configure your nixpkgs instance
     config = {

@@ -15,9 +15,17 @@
     # Doom Emacs
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
+    # Emacs Overlay
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
+
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, nix-doom-emacs, ... }@inputs: {
+  outputs = { nixpkgs, 
+              home-manager, 
+              hyprland, 
+              nix-doom-emacs, 
+              emacs-overlay,
+              ... }@inputs: {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
