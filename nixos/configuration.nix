@@ -115,7 +115,10 @@
            /usr/bin/env git clone --depth=1 --single-branch "https://github.com/doomemacs/doomemacs" "$XDG_CONFIG_HOME/emacs"
            /usr/bin/env git clone "https://github.com/struan-robertson/doom-config" "$XDG_CONFIG_HOME/doom"
       fi
-      
+  
+      if [ -d "$HOME/.emacs.d" ]; then
+        rm -rf .emacs.d
+      fi    
     '';
   };
 
