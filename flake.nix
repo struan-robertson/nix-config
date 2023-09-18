@@ -12,16 +12,12 @@
     # Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
 
-    # Emacs Overlay
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
 
   };
 
   outputs = { nixpkgs, 
               home-manager, 
               hyprland, 
-              nix-doom-emacs, 
-              emacs-overlay,
               ... }@inputs: {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'

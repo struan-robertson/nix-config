@@ -6,7 +6,7 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacsPgtk;
+    package = pkgs.emacs29-pgtk;
     extraPackages = epkgs: [
       epkgs.vterm
     ];
@@ -17,14 +17,43 @@
   home.packages = with pkgs; [
     # DOOM Emacs dependencies
     binutils
+
     (ripgrep.override { withPCRE2 = true; })
     gnutls
     fd
+
     imagemagick
     zstd
     nodePackages.javascript-typescript-langserver
     sqlite
     editorconfig-core-c
-    emacs-all-the-icons-fonts
+
+    pinentry-emacs
+    zstd
+
+    # :lang web
+    html-tidy
+    nodePackages_latest.stylelint
+    nodePackages_latest.js-beautify
+
+    # :lang sh
+    shellcheck
+
+    # :lang rust
+    cargo
+    rustc
+
+    # :lang org
+    graphviz
+
+    # :lang nix
+    nixfmt
+
+    # :lang markdown
+    pandoc
+
+    # :lang julia
+    julia-bin
+    
   ];
 }
