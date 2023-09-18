@@ -51,12 +51,12 @@
 
       substituters = [
         "https://hyprland.cachix.org"
-        #"https://nix-community.cachix.org"
+        "https://nix-community.cachix.org"
       ];
 
       trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-        #"nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };
   };
@@ -86,6 +86,9 @@
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     font-awesome
     inter
+
+    # Emacs icons
+    emacs-all-the-icons-fonts 
   ];
 
   hardware.opengl = {
@@ -96,6 +99,24 @@
       vaapiVdpau
       libvdpau-va-gl
     ];
+  };
+  
+ environment.sessionVariables = {
+    XDG_CACHE_HOME  = "$HOME/.cache";
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_DATA_HOME   = "$HOME/.local/share";
+    XDG_STATE_HOME  = "$HOME/.local/state";
+  };
+
+  # Slight hack to install Doom Emacs on fist system install
+  system.userActivationScripts = {
+    installDoomEmacs = ''
+      if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then
+           /usr/bin/env git clone --depth=1 --single-branch "https://github.com/doomemacs/doomemacs" "$XDG_CONFIG_HOME/emacs"
+           /usr/bin/env git clone "https://github.com/struan-robertson/doom-config" "$XDG_CONFIG_HOME/doom"
+      fi
+      
+    '';
   };
 
   networking.hostName = "nixlaptop";

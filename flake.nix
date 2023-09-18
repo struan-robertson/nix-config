@@ -12,9 +12,6 @@
     # Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
 
-    # Doom Emacs
-    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
-
     # Emacs Overlay
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 

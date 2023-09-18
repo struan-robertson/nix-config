@@ -333,15 +333,13 @@
       "locked": {
         "lastModified": 1694741217,
         "narHash": "sha256-PsyQbRMvc/+5QXS5eahj6aS9xkp+eyOWO3nQ0uzqR/Y=",
-        "owner": "nix-community",
-        "repo": "nix-doom-emacs",
+        "path": "/nix/store/g3nh709wg12szpq58zsbdpssvwym8nay-source",
         "rev": "e0c972b33eb6715d4a59b7de656008609f8d77bd",
-        "type": "github"
+        "type": "path"
       },
       "original": {
-        "owner": "nix-community",
-        "repo": "nix-doom-emacs",
-        "type": "github"
+        "id": "nix-doom-emacs",
+        "type": "indirect"
       }
     },
     "nix-straight": {
