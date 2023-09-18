@@ -12,9 +12,12 @@
     # Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
 
+    # Doom Emacs
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, hyprland, nix-doom-emacs, ... }@inputs: {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
