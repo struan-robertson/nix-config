@@ -72,6 +72,7 @@
     bat
     wl-clipboard
     htop
+    unzip
 
     # Fish plugins
     fishPlugins.pure
