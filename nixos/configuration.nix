@@ -104,20 +104,15 @@
     ];
   };
 
- # services = {
- #   syncthing = {
- #    enable = true;
- #    user = "nixlaptop";
- #    dataDir = "/home/struan/Sync";
- #    configDir = "home/struan/.config/syncthing";
- #    overrideFolders = true;
- #    devices = {
- #      "alphavps" = { id = "HIVVRJM-XJ3CU6C-XT44PR6-UHVFAUJ-3MYYAJI-X4LWY4G-OL3QHKV-XDD6IAK"; };
- #      # Add aditional inter computer communication manually
- #    };
-    
- #  }; 
- # };
+ # TODO: when I have a local NAS and dont have to use encryption, make syncthing declarative
+ services = {
+   syncthing = {
+    enable = true;
+    user = "struan";
+    dataDir = "/home/struan/Sync";
+    configDir = "/home/struan/.config/syncthing";
+  }; 
+ };
   
  environment.sessionVariables = {
     XDG_CACHE_HOME  = "$HOME/.cache";
