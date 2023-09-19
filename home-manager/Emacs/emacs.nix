@@ -21,6 +21,7 @@
     (ripgrep.override { withPCRE2 = true; })
     gnutls
     fd
+    libvterm
 
     imagemagick
     zstd

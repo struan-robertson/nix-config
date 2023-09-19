@@ -51,6 +51,9 @@
   home.packages = with pkgs; [ 
     neofetch
     fzf
+    pavucontrol
+    gnumake
+    cmake
   ];
 
   home.pointerCursor = {
