@@ -71,6 +71,7 @@
     fd
     bat
     wl-clipboard
+    htop
 
     # Fish plugins
     fishPlugins.pure
