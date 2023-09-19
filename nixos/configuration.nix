@@ -86,10 +86,12 @@
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     font-awesome
     inter
+    times-newer-roman
 
     # Emacs icons
     emacs-all-the-icons-fonts 
   ];
+  fonts.fontDir.enable = true;
 
   hardware.opengl = {
     enable = true;
@@ -100,6 +102,21 @@
       libvdpau-va-gl
     ];
   };
+
+ # services = {
+ #   syncthing = {
+ #    enable = true;
+ #    user = "nixlaptop";
+ #    dataDir = "/home/struan/Sync";
+ #    configDir = "home/struan/.config/syncthing";
+ #    overrideFolders = true;
+ #    devices = {
+ #      "alphavps" = { id = "HIVVRJM-XJ3CU6C-XT44PR6-UHVFAUJ-3MYYAJI-X4LWY4G-OL3QHKV-XDD6IAK"; };
+ #      # Add aditional inter computer communication manually
+ #    };
+    
+ #  }; 
+ # };
   
  environment.sessionVariables = {
     XDG_CACHE_HOME  = "$HOME/.cache";
