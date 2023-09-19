@@ -41,8 +41,6 @@
     };
   };
 
-  #wayland.windowManager.hyprland.enable = true;
-
   home = {
     username = "struan";
     homeDirectory = "/home/struan";
@@ -61,6 +59,10 @@
     package = pkgs.bibata-cursors;
     name = "Bibata-Original-Classic";
     size = 22;
+  };
+
+  home.sessionVariables = {
+    SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent";
   };
 
   # Enable home-manager and git
@@ -97,7 +99,10 @@
     enable = true;
     settings.theme = "nord";
   };
-  
+
+  services = {
+    ssh-agent.enable = true;
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

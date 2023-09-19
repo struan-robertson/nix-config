@@ -55,6 +55,9 @@
 
     # :lang julia
     julia-bin
+
+    # :lang python
+    python3
     
   ];
 }
