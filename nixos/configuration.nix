@@ -140,6 +140,23 @@
 
   time.timeZone = "Europe/London";
 
+  xdg.portal  = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+
+    ];
+  };
+
+  # rtkit is optional but recommended
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
   services.printing.enable = true;
 
   boot.loader.systemd-boot.enable = true;
