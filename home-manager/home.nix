@@ -113,10 +113,7 @@
 
   programs.firefox.enable = true;
 
-  programs.helix = {
-    enable = true;
-    settings.theme = "nord";
-  };
+
 
   services = {
     ssh-agent.enable = true;
