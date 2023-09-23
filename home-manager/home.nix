@@ -9,14 +9,14 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
- 
+
     ./Desktop/hypr/hyprland.nix
     ./Desktop/waybar/waybar.nix
 
     ./fish.nix
 
     ./Emacs/emacs.nix
-    
+
   ];
 
   nixpkgs = {
@@ -25,7 +25,7 @@
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
       (import ../Overlays/home-manager/zotero.nix)
- 
+
       # Or define it inline, for example:
       # (final: prev: {
       #   helo = final.hello.overrideAttrs (oldAttrs: {
@@ -47,7 +47,7 @@
     homeDirectory = "/home/struan";
   };
 
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     neofetch
     fzf
     pavucontrol
@@ -58,6 +58,29 @@
     zotero
     zathura
   ];
+
+  # TODO Nordify
+  gtk = {
+    enable = true;
+    iconTheme = {
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus-Dark";
+    };
+    theme = {
+      package = pkgs.materia-theme;
+      name = "Materia-dark-compact";
+    };
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+  };
 
   xdg.configFile."tofi/config".text = ''
     width = 200%
@@ -76,7 +99,8 @@
   '';
 
   xdg.mime.enable = true;
-  xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
+  xdg.systemDirs.data =
+    [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
 
   home.pointerCursor = {
     gtk.enable = true;
@@ -85,9 +109,7 @@
     size = 22;
   };
 
-  home.sessionVariables = {
-    SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent";
-  };
+  home.sessionVariables = { SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent"; };
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
@@ -98,7 +120,7 @@
     userEmail = "contact@struanrobertson.co.uk";
   };
 
-  programs.wezterm = { 
+  programs.wezterm = {
     enable = true;
     extraConfig = ''
       local wezterm = require 'wezterm'
@@ -119,9 +141,7 @@
 
   programs.firefox.enable = true;
 
-  services = {
-    ssh-agent.enable = true;
-  };
+  services = { ssh-agent.enable = true; };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

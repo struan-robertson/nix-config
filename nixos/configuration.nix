@@ -78,6 +78,8 @@
     fishPlugins.pure
     fishPlugins.puffer
     fishPlugins.pisces
+
+    papirus-icon-theme
   ];
 
   programs.fish.enable = true;
@@ -108,6 +110,17 @@
       serif = [ "Times Newer Roman" ];
     };
   };
+
+  programs.dconf.enable = true;
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
+  };
+  services.gvfs.enable = true;
+  services.tumbler.enable = true;
 
   hardware.opengl = {
     enable = true;
