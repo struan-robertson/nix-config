@@ -26,6 +26,11 @@
       # neovim-nightly-overlay.overlays.default
       (import ../Overlays/home-manager/zotero.nix)
 
+      (final: prev: {
+        papirus-nord = prev.papirus-nord.override {
+          accent = "frostblue4";
+        };
+      })
       # Or define it inline, for example:
       # (final: prev: {
       #   helo = final.hello.overrideAttrs (oldAttrs: {
@@ -59,26 +64,21 @@
     zathura
   ];
 
-  # TODO Nordify
   gtk = {
     enable = true;
     iconTheme = {
-      package = pkgs.papirus-icon-theme;
+      package = pkgs.papirus-nord;
       name = "Papirus-Dark";
     };
     theme = {
-      package = pkgs.materia-theme;
-      name = "Materia-dark-compact";
+      package = pkgs.nordic;
+      name = "Nordic";
     };
     gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
+      gtk-application-prefer-dark-theme = 1;
     };
     gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
+      gtk-application-prefer-dark-theme = 1;
     };
   };
 
