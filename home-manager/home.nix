@@ -75,6 +75,9 @@
     prompt-text ="󰑮 "
   '';
 
+  xdg.mime.enable = true;
+  xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
+
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;
@@ -115,8 +118,6 @@
   };
 
   programs.firefox.enable = true;
-
-
 
   services = {
     ssh-agent.enable = true;

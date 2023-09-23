@@ -73,6 +73,7 @@
     wl-clipboard
     htop
     unzip
+    poppler_utils
 
     # Fish plugins
     fishPlugins.pure
