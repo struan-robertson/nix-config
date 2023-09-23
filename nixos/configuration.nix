@@ -39,7 +39,8 @@
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}")
+      config.nix.registry;
 
     settings = {
       # Enable flakes and new 'nix' command
@@ -49,10 +50,8 @@
 
       trusted-users = [ "struan" ];
 
-      substituters = [
-        "https://hyprland.cachix.org"
-        "https://nix-community.cachix.org"
-      ];
+      substituters =
+        [ "https://hyprland.cachix.org" "https://nix-community.cachix.org" ];
 
       trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
@@ -81,7 +80,7 @@
     fishPlugins.pisces
   ];
 
-  programs.fish.enable = true; 
+  programs.fish.enable = true;
 
   fonts.packages = with pkgs; [
     fira-code
@@ -90,37 +89,51 @@
     font-awesome
     inter
     times-newer-roman
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    noto-fonts-extra
 
     # Emacs icons
-    emacs-all-the-icons-fonts 
+    emacs-all-the-icons-fonts
   ];
+
   fonts.fontDir.enable = true;
+
+  fonts.fontconfig = {
+    defaultFonts = {
+      emoji = [ "Noto Color Emoji" ];
+      monospace = [ "FiraCode Nerd Font" ];
+      sansSerif = [ "Inter" ];
+      serif = [ "Times Newer Roman" ];
+    };
+  };
 
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox)
+      vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox)
       vaapiVdpau
       libvdpau-va-gl
     ];
   };
 
- # TODO: when I have a local NAS and dont have to use encryption, make syncthing declarative
- services = {
-   syncthing = {
-    enable = true;
-    user = "struan";
-    dataDir = "/home/struan/Sync";
-    configDir = "/home/struan/.config/syncthing";
-  }; 
- };
-  
- environment.sessionVariables = {
-    XDG_CACHE_HOME  = "$HOME/.cache";
+  # TODO: when I have a local NAS and dont have to use encryption, make syncthing declarative
+  services = {
+    syncthing = {
+      enable = true;
+      user = "struan";
+      dataDir = "/home/struan/Sync";
+      configDir = "/home/struan/.config/syncthing";
+    };
+  };
+
+  environment.sessionVariables = {
+    XDG_CACHE_HOME = "$HOME/.cache";
     XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_DATA_HOME   = "$HOME/.local/share";
-    XDG_STATE_HOME  = "$HOME/.local/state";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
   };
 
   # Slight hack to install Doom Emacs on fist system install
@@ -130,10 +143,10 @@
            /usr/bin/env git clone --depth=1 --single-branch "https://github.com/doomemacs/doomemacs" "$XDG_CONFIG_HOME/emacs"
            /usr/bin/env git clone "https://github.com/struan-robertson/doom-config" "$XDG_CONFIG_HOME/doom"
       fi
-  
+
       if [ -d "$HOME/.emacs.d" ]; then
         rm -rf .emacs.d
-      fi    
+      fi
     '';
   };
 
@@ -142,12 +155,13 @@
 
   time.timeZone = "Europe/London";
 
-  xdg.portal  = {
+  xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
+    extraPortals = with pkgs;
+      [
+        xdg-desktop-portal-hyprland
 
-    ];
+      ];
   };
 
   # rtkit is optional but recommended
@@ -171,8 +185,8 @@
   boot.swraid.enable = false; # fix warning
 
   users.users.struan = {
-      isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
+    isNormalUser = true;
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
   };
   users.defaultUserShell = pkgs.fish;
 
