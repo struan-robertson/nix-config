@@ -58,6 +58,9 @@
 
     # :lang python
     python3
+
+    # :lang latex & :lang org
+    texlive.combined.scheme-medium
     
   ];
 }
