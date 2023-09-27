@@ -62,6 +62,9 @@
     tofi
     zotero
     zathura
+
+    # For Thunar Archvives
+    mate.engrampa
   ];
 
   gtk = {
