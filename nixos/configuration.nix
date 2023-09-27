@@ -74,6 +74,9 @@
     unzip
     poppler_utils
 
+    gcc
+    clang
+
     # Fish plugins
     fishPlugins.pure
     fishPlugins.puffer
