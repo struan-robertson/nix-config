@@ -83,7 +83,17 @@
     fishPlugins.pisces
 
     papirus-icon-theme
+
+    brillo
   ];
+
+  services.udev = {
+    enable = true;
+    packages = [
+      pkgs.brillo
+      pkgs.wluma
+    ];
+  };
 
   programs.fish.enable = true;
 
