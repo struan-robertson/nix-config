@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, config, ... }:
 {
 
   imports = [ inputs.hyprland.homeManagerModules.default ];
@@ -38,6 +38,26 @@
       text-ver-color = "3b4252ff";
       text-wrong-color = "3b4252ff";
     };
+  };
+
+  services.swayidle = {
+    enable = true;
+    timeouts = [
+      {
+        command = "${config.programs.swaylock.package}/bin/swaylock";
+        timeout = 300;
+      }
+    ];
+    events = [
+      {
+        event = "before-sleep";
+        command = "${config.programs.swaylock.package}/bin/swaylock";
+      }
+      {
+        event = "lock";
+        command = "${config.programs.swaylock.package}/bin/swaylock";
+      }
+    ];
   };
 
   home.packages = with pkgs; [
