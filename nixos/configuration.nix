@@ -89,6 +89,14 @@
     auth include login
   '';
 
+  services.logind = {
+    killUserProcesses = true;
+    extraConfig = ''
+      IdleAction=suspend
+      IdleActionSec=7min
+    '';
+  };
+
   services.udev = {
     enable = true;
     packages = [
