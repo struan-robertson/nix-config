@@ -85,6 +85,10 @@
     papirus-icon-theme
   ];
 
+  security.pam.services.swaylock.text = ''
+    auth include login
+  '';
+
   services.udev = {
     enable = true;
     packages = [
