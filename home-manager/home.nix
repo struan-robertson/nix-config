@@ -62,6 +62,7 @@
     tofi
     zotero
     zathura
+    libreoffice
 
     # For Thunar Archvives
     mate.engrampa
