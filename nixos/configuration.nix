@@ -104,6 +104,7 @@
     ];
   };
 
+  # TODO Remove for desktop profile
   services.tlp = {
     enable = true;
   };
