@@ -91,10 +91,6 @@
 
   services.logind = {
     killUserProcesses = true;
-    extraConfig = ''
-      IdleAction=suspend
-      IdleActionSec=7min
-    '';
   };
 
   services.udev = {

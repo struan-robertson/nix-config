@@ -42,20 +42,30 @@
 
   services.swayidle = {
     enable = true;
+    systemdTarget = "hyprland-session.target";
     timeouts = [
       {
-        command = "${config.programs.swaylock.package}/bin/swaylock";
-        timeout = 300;
+        command = "${config.programs.swaylock.package}/bin/swaylock -f";
+        timeout = 180;
+      }
+      {
+        command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
+        resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
+        timeout = 360;
+      }
+      {
+        command = "systemctl suspend";
+        timeout = 420;
       }
     ];
     events = [
       {
         event = "before-sleep";
-        command = "${config.programs.swaylock.package}/bin/swaylock";
+        command = "${config.programs.swaylock.package}/bin/swaylock -f";
       }
       {
         event = "lock";
-        command = "${config.programs.swaylock.package}/bin/swaylock";
+        command = "${config.programs.swaylock.package}/bin/swaylock -f";
       }
     ];
   };
