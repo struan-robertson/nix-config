@@ -50,13 +50,14 @@
       }
       {
         command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
-        resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
+        resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
         timeout = 360;
       }
-      {
-        command = "systemctl suspend";
-        timeout = 420;
-      }
+      # TODO fix sleep after time
+      # {
+      #   command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on && systemctl suspend";
+      #   timeout = 420;
+      # }
     ];
     events = [
       {
