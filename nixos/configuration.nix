@@ -112,6 +112,8 @@
     };
   };
 
+  services.fstrim.enable = true;
+
   programs.fish.enable = true;
 
   fonts.packages = with pkgs; [
