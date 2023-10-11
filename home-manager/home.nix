@@ -61,8 +61,9 @@
     (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
     tofi
     zotero
-    zathura
+    sioyek
     libreoffice
+    powertop
 
     # For Thunar Archvives
     mate.engrampa
