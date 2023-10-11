@@ -213,11 +213,6 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.luks.devices.root = {
-    device = "/dev/disk/by-uuid/cca4afd7-4b96-455c-aaee-d1f6446fee4e";
-    preLVM = true;
-    allowDiscards = true;
-  };
   boot.swraid.enable = false; # fix warning
 
   users.users.struan = {
