@@ -112,6 +112,10 @@
     };
   };
 
+  hardware.firmware = with pkgs; [
+    sof-firmware
+  ];
+
   services.fstrim.enable = true;
 
   programs.fish.enable = true;
