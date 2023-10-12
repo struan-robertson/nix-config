@@ -100,6 +100,15 @@
     ];
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  hardware.firmware = with pkgs; [
+    sof-firmware
+    alsa-firmware
+  ];
+
+  services.fwupd.enable = true;
+
   # TODO Remove for desktop profile
   services.tlp = {
     enable = true;
@@ -112,15 +121,11 @@
     };
   };
 
-  hardware.firmware = with pkgs; [
-    sof-firmware
-  ];
-
   services.fstrim.enable = true;
 
   programs.fish.enable = true;
 
-  fonts.packages = with pkgs; [
+  fonts.fonts = with pkgs; [
     fira-code
     fira-code-symbols
     (nerdfonts.override { fonts = [ "FiraCode" "NerdFontsSymbolsOnly" ]; })
@@ -226,7 +231,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.swraid.enable = false; # fix warning
+  # boot.swraid.enable = false; # fix warning
 
   users.users.struan = {
     isNormalUser = true;
