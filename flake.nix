@@ -16,15 +16,27 @@
 
   };
 
-  outputs = { nixpkgs, 
+  outputs = { nixpkgs,
+              nixpkgs-unstable,
               home-manager, 
               hyprland, 
               ... }@inputs: {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      nixlaptop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+      nixlaptop = nixpkgs.lib.nixosSystem rec {
+
+        system = "x86_64-linux";
+
+        specialArgs = {
+
+          inherit inputs;
+
+          pkgs-unstable = import nixpkgs-unstable {
+            system = system;
+            config.allowUnfree = true;
+          };
+        };
 
         modules = [ 
           ./nixos/configuration.nix 
@@ -36,8 +48,19 @@
     # Available through 'home-manager --flake .#struan@nixlaptop'
     homeConfigurations = {
       "struan@nixlaptop" = home-manager.lib.homeManagerConfiguration {
+
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inherit inputs; };
+
+        extraSpecialArgs = {
+          inherit inputs;
+
+          pkgs-unstable = import nixpkgs-unstable {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          };
+
+        };
+
         modules = [ 
           ./home-manager/home.nix 
         ];

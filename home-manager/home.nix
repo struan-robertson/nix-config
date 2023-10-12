@@ -1,7 +1,7 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, lib, config, pkgs, pkgs-unstable, ... }: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -17,6 +17,8 @@
 
     ./Emacs/emacs.nix
 
+    ./Services/ssh-agent.nix
+
   ];
 
   nixpkgs = {
@@ -26,11 +28,13 @@
       # neovim-nightly-overlay.overlays.default
       (import ../Overlays/home-manager/zotero.nix)
 
+      # Not sure of another way to do it, so the overriden unstable package becomes part of pkgs
       (final: prev: {
-        papirus-nord = prev.papirus-nord.override {
+        papirus-nord = pkgs-unstable.papirus-nord.override {
           accent = "frostblue4";
         };
       })
+
       # Or define it inline, for example:
       # (final: prev: {
       #   helo = final.hello.overrideAttrs (oldAttrs: {
