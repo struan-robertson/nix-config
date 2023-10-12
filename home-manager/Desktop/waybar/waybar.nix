@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 {
   programs.waybar = {
   
@@ -14,6 +14,8 @@
 #       })
 #     ];
 #   });
+#
+    package = pkgs-unstable.waybar;
 
     settings = {
       mainBar = {

@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, pkgs-unstable, config, lib, ... }:
 {
   home = {
     sessionPath = [ "${config.xdg.configHome}/emacs/bin" ];
@@ -6,7 +6,7 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs29-pgtk;
+    package = pkgs-unstable.emacs29-pgtk;
     extraPackages = epkgs: [
       epkgs.vterm
     ];
