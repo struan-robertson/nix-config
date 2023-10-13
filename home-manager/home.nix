@@ -77,29 +77,13 @@
 
   programs.firefox.enable = true;
 
-  xdg.mime.enable = true;
-  xdg.systemDirs.data =
-    [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
-
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "application/pdf" = [ "sioyek.desktop" "firefox.desktop" ];
-    };
-  };
-
-
-  home.sessionVariables = { SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent"; };
-
-  # Enable home-manager and git
-  programs.home-manager.enable = true;
-
   programs.git = {
     enable = true;
     userName = "Struan Robertson";
     userEmail = "contact@struanrobertson.co.uk";
   };
 
+  programs.home-manager.enable = true;
 
   services = { ssh-agent.enable = true; };
 
