@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
+
+  # rtkit for pipewire
+  security.rtkit.enable = true;
+
   # Allow swaylock to read login information
   security.pam.services.swaylock.text = ''
     auth include login

@@ -18,7 +18,9 @@
 
     ./environment.nix
 
-    ./netgworking.nix
+    ./networking.nix
+
+    ./sound.nix
 
     ./Applications/thunar.nix
     ./Applications/syncthing.nix
@@ -103,7 +105,16 @@
 
   ];
 
+  # Enable fish shell for all users
   programs.fish.enable = true;
+
+  users.users.struan = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
+  };
+  users.defaultUserShell = pkgs.fish;
+
+  time.timeZone = "Europe/London";
 
   # Slight hack to install Doom Emacs on fist system install
   system.userActivationScripts = {
@@ -119,26 +130,10 @@
     '';
   };
 
-
-  time.timeZone = "Europe/London";
-
+  # Hyprland xdg portal
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs;
-      [
-        xdg-desktop-portal-hyprland
-
-      ];
-  };
-
-  # rtkit is optional but recommended
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    wireplumber.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
   };
 
   services.printing.enable = true;
@@ -146,12 +141,6 @@
   # Should be the same on all systems
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  users.users.struan = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
-  };
-  users.defaultUserShell = pkgs.fish;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
