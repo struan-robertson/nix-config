@@ -17,6 +17,7 @@
     ./security.nix
 
     ./Applications/thunar.nix
+    ./Applications/syncthing.nix
   ];
 
   nixpkgs = {
@@ -101,15 +102,6 @@
   programs.fish.enable = true;
 
 
-  # TODO: when I have a local NAS and dont have to use encryption, make syncthing declarative
-  services = {
-    syncthing = {
-      enable = true;
-      user = "struan";
-      dataDir = "/home/struan/Sync";
-      configDir = "/home/struan/.config/syncthing";
-    };
-  };
 
   environment.sessionVariables = {
     XDG_CACHE_HOME = "$HOME/.cache";
