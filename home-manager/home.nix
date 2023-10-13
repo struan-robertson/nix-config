@@ -12,6 +12,8 @@
 
     ./Desktop/hypr/hyprland.nix
     ./Desktop/waybar/waybar.nix
+    ./Desktop/theme.nix
+    ./Desktop/tofi.nix
 
     ./Terminal/fish.nix
     ./Terminal/wezterm.nix
@@ -64,7 +66,6 @@
     gnumake
     cmake
     (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
-    tofi
     zotero
     sioyek
     libreoffice
@@ -75,22 +76,6 @@
   ];
 
   programs.firefox.enable = true;
-
-  xdg.configFile."tofi/config".text = ''
-    width = 200%
-    height = 200%
-    border-width = 0
-    outline-width = 0
-    padding-left = 97%
-    padding-top = 75%
-    result-spacing = 25
-    num-results = 9
-    font = /home/struan/Sync/bin/InterNerdFont-Regular.otf
-    background-color = #000A
-    text-color = #ECEFF4
-    selection-color = #5E81AC
-    prompt-text ="󰑮 "
-  '';
 
   xdg.mime.enable = true;
   xdg.systemDirs.data =
