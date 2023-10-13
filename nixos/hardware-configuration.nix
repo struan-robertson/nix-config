@@ -108,9 +108,9 @@
   services.fstrim.enable = true;
 
   # Enable ipu6 webcam
-  hardware.ipu6 = {
-    enable = true;
-    platform = "ipu6";
-  };
+  # hardware.ipu6 = {
+  #   enable = true;
+  #   platform = "ipu6";
+  # };
 
 }
