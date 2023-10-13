@@ -36,6 +36,11 @@
       #   });
       # })
 
+      (final: prev: {
+        patched-ipu6-drivers = final.linuxKernel.packages.linux_6_5.ipu6-drivers.overrideAttrs (oldAttrs: {
+          patches = [ ../Overlays/nixos/ipu6/get_user_pages_6_5.patch ];
+        });
+      })
     ];
     # Configure your nixpkgs instance
     config = {

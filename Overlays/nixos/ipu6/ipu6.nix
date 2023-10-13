@@ -25,11 +25,8 @@ in
 
   config = mkIf cfg.enable {
 
-    boot.extraModulePackages = with config.boot.kernelPackages; [
-
-      ipu6-drivers.overrideAttrs (oldAttrs: {
-          patches = [ ./get_user_pages_6_5.patch ]; })
-
+    boot.extraModulePackages = with pkgs; [
+      patched-ipu6-drivers
     ];
 
     hardware.firmware = with pkgs; [ ]

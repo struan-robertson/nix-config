@@ -2,6 +2,8 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+  disabledModules = [ "hardware/video/webcam/ipu6.nix" ];
+
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
 
