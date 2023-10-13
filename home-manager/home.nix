@@ -111,6 +111,13 @@
   xdg.systemDirs.data =
     [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
 
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "application/pdf" = [ "sioyek.desktop" "firefox.desktop" ];
+    };
+  };
+
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;
