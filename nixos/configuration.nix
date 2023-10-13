@@ -11,6 +11,8 @@
     # Import hardware configuration
     # Note that this has been modified from auto generated version
     ./hardware-configuration.nix
+
+    ./fonts.nix
   ];
 
   nixpkgs = {
@@ -92,6 +94,9 @@
 
   ];
 
+  programs.fish.enable = true;
+
+  # Login/security
   security.pam.services.swaylock.text = ''
     auth include login
   '';
@@ -107,35 +112,7 @@
     ];
   };
 
-
-  programs.fish.enable = true;
-
-  fonts.fonts = with pkgs; [
-    fira-code
-    fira-code-symbols
-    (nerdfonts.override { fonts = [ "FiraCode" "NerdFontsSymbolsOnly" ]; })
-    font-awesome
-    inter
-    times-newer-roman
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    noto-fonts-extra
-
-    # Emacs icons
-    emacs-all-the-icons-fonts
-  ];
-
-  fonts.fontDir.enable = true;
-
-  fonts.fontconfig = {
-    defaultFonts = {
-      emoji = [ "Noto Color Emoji" ];
-      monospace = [ "FiraCode Nerd Font" ];
-      sansSerif = [ "Inter" ];
-      serif = [ "Times Newer Roman" ];
-    };
-  };
+  # Thunar
 
   programs.dconf.enable = true;
   programs.thunar = {
