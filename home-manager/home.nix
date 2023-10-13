@@ -74,23 +74,7 @@
     mate.engrampa
   ];
 
-  gtk = {
-    enable = true;
-    iconTheme = {
-      package = pkgs.papirus-nord;
-      name = "Papirus-Dark";
-    };
-    theme = {
-      package = pkgs.nordic;
-      name = "Nordic";
-    };
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
-  };
+  programs.firefox.enable = true;
 
   xdg.configFile."tofi/config".text = ''
     width = 200%
@@ -119,12 +103,6 @@
     };
   };
 
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Original-Classic";
-    size = 22;
-  };
 
   home.sessionVariables = { SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent"; };
 
@@ -137,12 +115,6 @@
     userEmail = "contact@struanrobertson.co.uk";
   };
 
-  programs.zoxide = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
-  programs.firefox.enable = true;
 
   services = { ssh-agent.enable = true; };
 
