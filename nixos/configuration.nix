@@ -36,15 +36,12 @@
       #   });
       # })
 
-      (final: prev: {
-        testfuck = final.linuxKernel.packages.linux_6_5.ipu6-drivers.overrideAttrs (oldAttrs: {
-          patches = [ ../Overlays/nixos/ipu6/get_user_pages_6_5.patch ]; });
-      })
     ];
     # Configure your nixpkgs instance
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
+
     };
   };
 
@@ -93,15 +90,12 @@
     gcc
     clang
 
-    testfuck
-
     # Fish plugins
     fishPlugins.pure
     fishPlugins.puffer
     fishPlugins.pisces
 
     papirus-icon-theme
-
   ];
 
   # Enable fish shell for all users
