@@ -79,6 +79,16 @@
   # Update firmware from manufacturer
   services.fwupd.enable = true;
 
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      libva
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
+
   # TLP power management for laptop
   services.tlp = {
     enable = true;

@@ -148,16 +148,6 @@
   services.gvfs.enable = true;
   services.tumbler.enable = true;
 
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-      libva
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
-  };
-
   # TODO: when I have a local NAS and dont have to use encryption, make syncthing declarative
   services = {
     syncthing = {
