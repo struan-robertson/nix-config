@@ -13,6 +13,8 @@
     ./hardware-configuration.nix
 
     ./fonts.nix
+
+    ./security.nix
   ];
 
   nixpkgs = {
@@ -95,22 +97,6 @@
   ];
 
   programs.fish.enable = true;
-
-  # Login/security
-  security.pam.services.swaylock.text = ''
-    auth include login
-  '';
-
-  services.logind = {
-    killUserProcesses = true;
-  };
-
-  services.udev = {
-    enable = true;
-    packages = [
-      pkgs.brillo
-    ];
-  };
 
   # Thunar
 
