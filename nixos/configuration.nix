@@ -8,7 +8,8 @@
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
 
-    # Import your generated (nixos-generate-config) hardware configuration
+    # Import hardware configuration
+    # Note that this has been modified from auto generated version
     ./hardware-configuration.nix
   ];
 
@@ -23,6 +24,11 @@
       #   hi = final.hello.overrideAttrs (oldAttrs: {
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
+      # })
+
+      # (final: prev: {
+      #   config.boot.kernelPackages.ipu6-drivers = final.config.boot.kernelPackages.ipu6-drivers.overrideAttrs (oldAttrs: {
+      #     patches = [ ../Overlays/nixos/ipu6/get_user_pages_6_5.patch ]; });
       # })
     ];
     # Configure your nixpkgs instance
@@ -83,6 +89,7 @@
     fishPlugins.pisces
 
     papirus-icon-theme
+
   ];
 
   security.pam.services.swaylock.text = ''
@@ -100,28 +107,6 @@
     ];
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  hardware.firmware = with pkgs; [
-    sof-firmware
-    alsa-firmware
-  ];
-
-  services.fwupd.enable = true;
-
-  # TODO Remove for desktop profile
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-    };
-  };
-
-  services.fstrim.enable = true;
 
   programs.fish.enable = true;
 

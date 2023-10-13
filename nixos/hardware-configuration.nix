@@ -6,16 +6,19 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
+  # Boot configuration
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
   boot.initrd.luks.devices.root = {
-  	device = "/dev/disk/by-uuid/dd05da1e-5bc3-4199-a057-edca42596d5f";
-	preLVM = true;
-	allowDiscards = true;  
+    device = "/dev/disk/by-uuid/dd05da1e-5bc3-4199-a057-edca42596d5f";
+    preLVM = true;
+    allowDiscards = true;
   };
 
+  # Filesystems setup
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/a0ef6f45-c391-4ee1-a93c-794da96c49ba";
       fsType = "btrfs";
@@ -66,5 +69,35 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   # powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # Additonal firmware to install
+  hardware.firmware = with pkgs; [
+    sof-firmware
+    alsa-firmware
+  ];
+
+  # Update firmware from manufacturer
+  services.fwupd.enable = true;
+
+  # TLP power management for laptop
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+    };
+  };
+
+  # fstrim to prolongue SSD lifespan
+  services.fstrim.enable = true;
+
+  # Enable ipu6 webcam
+  # hardware.ipu6 = {
+  #   enable = true;
+  #   platform = "ipu6";
+  # };
 
 }
