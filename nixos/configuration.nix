@@ -18,6 +18,8 @@
 
     ./environment.nix
 
+    ./netgworking.nix
+
     ./Applications/thunar.nix
     ./Applications/syncthing.nix
   ];
@@ -103,7 +105,6 @@
 
   programs.fish.enable = true;
 
-
   # Slight hack to install Doom Emacs on fist system install
   system.userActivationScripts = {
     installDoomEmacs = ''
@@ -118,8 +119,6 @@
     '';
   };
 
-  networking.hostName = "nixlaptop";
-  networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/London";
 
