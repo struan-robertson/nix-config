@@ -7,7 +7,6 @@
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
 
-      ../Overlays/nixos/ipu6/ipu6.nix
     ];
 
   # Boot configuration
