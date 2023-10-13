@@ -14,6 +14,7 @@
     ./Desktop/waybar/waybar.nix
     ./Desktop/theme.nix
     ./Desktop/tofi.nix
+    ./Desktop/xdg.nix
 
     ./Terminal/fish.nix
     ./Terminal/wezterm.nix
