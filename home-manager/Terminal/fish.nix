@@ -64,4 +64,10 @@
     };
     
   };
+
+  # Zoxide directory search
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 }

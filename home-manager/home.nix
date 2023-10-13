@@ -13,7 +13,8 @@
     ./Desktop/hypr/hyprland.nix
     ./Desktop/waybar/waybar.nix
 
-    ./fish.nix
+    ./Terminal/fish.nix
+    ./Terminal/wezterm.nix
 
     ./Emacs/emacs.nix
 
@@ -134,20 +135,6 @@
     enable = true;
     userName = "Struan Robertson";
     userEmail = "contact@struanrobertson.co.uk";
-  };
-
-  programs.wezterm = {
-    enable = true;
-    extraConfig = ''
-      local wezterm = require 'wezterm'
-
-      return {
-        color_scheme = 'nord',
-        font = wezterm.font 'FiraCode Nerd Font',
-        hide_tab_bar_if_only_one_tab = true,
-        window_background_opacity = 0.9,
-      }
-    '';
   };
 
   programs.zoxide = {
