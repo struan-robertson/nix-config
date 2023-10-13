@@ -16,6 +16,8 @@
 
     ./security.nix
 
+    ./environment.nix
+
     ./Applications/thunar.nix
     ./Applications/syncthing.nix
   ];
@@ -102,14 +104,6 @@
   programs.fish.enable = true;
 
 
-
-  environment.sessionVariables = {
-    XDG_CACHE_HOME = "$HOME/.cache";
-    XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_DATA_HOME = "$HOME/.local/share";
-    XDG_STATE_HOME = "$HOME/.local/state";
-  };
-
   # Slight hack to install Doom Emacs on fist system install
   system.userActivationScripts = {
     installDoomEmacs = ''
@@ -150,9 +144,9 @@
 
   services.printing.enable = true;
 
+  # Should be the same on all systems
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  # boot.swraid.enable = false; # fix warning
 
   users.users.struan = {
     isNormalUser = true;
