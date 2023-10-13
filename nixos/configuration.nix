@@ -15,6 +15,8 @@
     ./fonts.nix
 
     ./security.nix
+
+    ./Applications/thunar.nix
   ];
 
   nixpkgs = {
@@ -98,18 +100,6 @@
 
   programs.fish.enable = true;
 
-  # Thunar
-
-  programs.dconf.enable = true;
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-      thunar-volman
-    ];
-  };
-  services.gvfs.enable = true;
-  services.tumbler.enable = true;
 
   # TODO: when I have a local NAS and dont have to use encryption, make syncthing declarative
   services = {
