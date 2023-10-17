@@ -71,10 +71,14 @@
     sioyek
     libreoffice
     powertop
+    imv
 
     # For Thunar Archvives
     mate.engrampa
+
+    pkgs-unstable.yazi
   ];
+
 
   programs.firefox.enable = true;
 
