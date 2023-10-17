@@ -46,7 +46,6 @@
       };
 
       icat = "wezterm imgcat";
-      ssh = "wezterm ssh";
       emacs = "emacsclient -t";
 
       N = "sudo n";
