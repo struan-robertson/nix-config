@@ -23,6 +23,8 @@
 
     ./Services/ssh-agent.nix
 
+    ./fhs.nix
+
   ];
 
   nixpkgs = {
