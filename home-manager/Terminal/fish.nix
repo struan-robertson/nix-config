@@ -45,8 +45,8 @@
           '';
       };
 
-      icat = "wezterm imgcat";
-      emacs = "emacsclient -t";
+      icat = "wezterm imgcat $argv";
+      emacs = "emacsclient -t $argv";
 
       N = "sudo n";
 
