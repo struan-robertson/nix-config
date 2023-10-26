@@ -1,11 +1,11 @@
 final: prev: {
   zotero = prev.zotero.overrideAttrs (oldAttrs: rec {
-    version = "7.0.0-beta.42%2B2db19ad4c";
+    version = "7.0.0-beta.47%2Bf012a348a";
     src = prev.fetchurl {
       url =
         "https://download.zotero.org/client/beta/${version}/Zotero-${version}_linux-x86_64.tar.bz2";
       sha256 =
-        "a977871f8aeec006be75348e03729208765214e419ab39558e722c751994ecc5";
+        "cd26517ad38c70b6ea07eaef747ebc9727dc60271f2299aa40856700b3150924";
     };
 
     postPatch = "";
