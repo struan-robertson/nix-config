@@ -123,6 +123,8 @@
     '';
   };
 
+  services.tailscale.enable = true;
+
   # Hyprland xdg portal
   xdg.portal = {
     enable = true;
