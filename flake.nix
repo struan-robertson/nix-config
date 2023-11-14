@@ -24,7 +24,7 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      nixlaptop = nixpkgs.lib.nixosSystem rec {
+      nix = nixpkgs.lib.nixosSystem rec {
 
         system = "x86_64-linux";
 
@@ -47,7 +47,7 @@
     # home-manager configuration entrypoint
     # Available through 'home-manager --flake .#struan@nixlaptop'
     homeConfigurations = {
-      "struan@nixlaptop" = home-manager.lib.homeManagerConfiguration {
+      "struan@nix" = home-manager.lib.homeManagerConfiguration {
 
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
 

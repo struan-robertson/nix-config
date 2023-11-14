@@ -11,7 +11,7 @@
     # ./nvim.nix
 
     ./Desktop/hypr/hyprland.nix
-    ./Desktop/waybar/waybar.nix
+    # ./Desktop/waybar/waybar.nix
     ./Desktop/theme.nix
     ./Desktop/tofi.nix
     ./Desktop/xdg.nix
@@ -21,7 +21,7 @@
 
     ./Emacs/emacs.nix
 
-    ./Services/ssh-agent.nix
+    # ./Services/ssh-agent.nix
 
   ];
 
@@ -30,7 +30,7 @@
     overlays = [
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
-      (import ../Overlays/home-manager/zotero.nix)
+      # (import ../Overlays/home-manager/zotero.nix)
 
       # Not sure of another way to do it, so the overriden unstable package becomes part of pkgs
       (final: prev: {
@@ -90,7 +90,7 @@
 
   programs.home-manager.enable = true;
 
-  services = { ssh-agent.enable = true; };
+  # services = { ssh-agent.enable = true; };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

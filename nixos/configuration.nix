@@ -19,6 +19,8 @@
 
     ./sound.nix
 
+    ./graphics.nix
+
     ./Applications/thunar.nix
     ./Applications/syncthing.nix
   ];
@@ -109,20 +111,6 @@
 
   time.timeZone = "Europe/London";
 
-  # Slight hack to install Doom Emacs on fist system install
-  system.userActivationScripts = {
-    installDoomEmacs = ''
-      if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then
-           /usr/bin/env git clone --depth=1 --single-branch "https://github.com/doomemacs/doomemacs" "$XDG_CONFIG_HOME/emacs"
-           /usr/bin/env git clone "https://github.com/struan-robertson/doom-config" "$XDG_CONFIG_HOME/doom"
-      fi
-
-      if [ -d "$HOME/.emacs.d" ]; then
-        rm -rf .emacs.d
-      fi
-    '';
-  };
-
   services.tailscale.enable = true;
 
   # Hyprland xdg portal
@@ -130,6 +118,9 @@
     enable = true;
     extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
   };
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_GB.UTF-8";
 
   services.printing.enable = true;
 

@@ -15,6 +15,13 @@
     killUserProcesses = true;
   };
 
+  # started in user sessions.
+  programs.mtr.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
   # Allow brillo to change brightness settings
   services.udev = {
     enable = true;
