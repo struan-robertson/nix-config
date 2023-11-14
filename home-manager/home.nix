@@ -11,7 +11,7 @@
     # ./nvim.nix
 
     ./Desktop/hypr/hyprland.nix
-    # ./Desktop/waybar/waybar.nix
+    ./Desktop/eww/eww.nix
     ./Desktop/theme.nix
     ./Desktop/tofi.nix
     ./Desktop/xdg.nix
