@@ -18,7 +18,7 @@
     };
     theme = {
       package = pkgs.nordic;
-      name = "Nordic";
+      name = "Nordic-bluish-accent-standard-buttons";
     };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
