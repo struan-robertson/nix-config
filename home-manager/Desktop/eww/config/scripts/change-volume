@@ -4,8 +4,8 @@ direction=$1
 
 if test "$direction" = "down"
 then
-    amixer sset Master 5%- | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%' | head -1 > ~/.config/eww/scripts/volume
+    amixer sset Master 5%- | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%' | head -1 > ~/.local/state/eww/volume
 elif test "$direction" = "up"
 then
-    amixer sset Master 5%+ | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%' | head -1 > ~/.config/eww/scripts/volume
+    amixer sset Master 5%+ | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%' | head -1 > ~/.local/state/eww/volume
 fi

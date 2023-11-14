@@ -1,6 +1,7 @@
-(defpoll checkVolume :interval "2s" :initial "" "amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2; print $4}' | tr -d '%' > ~/.config/eww/scripts/volume")
-(deflisten volume :initial "0" "~/.config/eww/scripts/line-follow ~/.config/eww/scripts/volume 1")
-(deflisten mute :initial "off" "~/.config/eww/scripts/line-follow ~/.config/eww/scripts/volume 2")
+(defpoll checkVolume :interval "2s" :initial "" "amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2; print $4}' | tr -d '%' > ~/.local/state/eww/volume")
+
+(deflisten volume :initial "0" "~/.config/eww/scripts/line-follow ~/.local/state/eww/volume 1")
+(deflisten mute :initial "off" "~/.config/eww/scripts/line-follow ~/.local/state/eww/volume 2")
 
 (defpoll SSID :interval "10s" "iw dev wlp6s0 link | grep SSID | xargs | cut -d ':' -f 2 | xargs")
 (defpoll SIGNAL :interval "10s" "echo $(( ($(iw dev wlp6s0 link | grep signal | xargs | cut -d ':' -f 2 | xargs | cut -d ' ' -f 1) + 110) * 10 / 7 ))" )
@@ -42,7 +43,7 @@
             (label :class "date" :text "${formattime(EWW_TIME, '%b')}"))))
 
 (defwidget volume[]
-    (eventbox :onscroll "bash ~/.config/eww/scripts/change-volume {}" :onclick "amixer sset Master toggle | grep Left: | awk -F'[][]' '{ print $2; print $4 }' | tr -d '%' > ~/.config/eww/scripts/volume " :cursor "pointer"
+    (eventbox :onscroll "bash ~/.config/eww/scripts/change-volume {}" :onclick "amixer sset Master toggle | grep Left: | awk -F'[][]' '{ print $2; print $4 }' | tr -d '%' > ~/.local/state/eww/volume " :cursor "pointer"
     (box :class "sys_box" :orientation "v" :space-evenly "false" :hexpand "false" :vexpand "false"
             (circular-progress
                     :value "${volume}"
