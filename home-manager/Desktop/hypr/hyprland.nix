@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, ... }:
+{ inputs, pkgs, pkgs-unstable, config, ... }:
 {
 
   imports = [ inputs.hyprland.homeManagerModules.default ];
@@ -75,6 +75,8 @@
     swaybg
     mako
     pamixer
+
+    pkgs-unstable.grimblast
   ];
 
 

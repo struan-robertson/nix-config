@@ -78,7 +78,6 @@
     mate.engrampa
 
     pkgs-unstable.yazi
-    pkgs-unstable.grimblast
   ];
 
 
@@ -91,8 +90,6 @@
   };
 
   programs.home-manager.enable = true;
-
-  # services = { ssh-agent.enable = true; };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
