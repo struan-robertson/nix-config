@@ -126,6 +126,10 @@
 
   services.printing.enable = true;
 
+  services.logind.extraConfig = ''
+    HandlePowerKey=suspend
+  '';
+
   # Should be the same on all systems
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
