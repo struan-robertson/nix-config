@@ -1,0 +1,199 @@
+*{
+	all: unset;
+	font-family: JetbrainsMono Nerd Font;
+	font-size: 14px;
+}
+
+$white: #E5E9F0;
+$lightgray: #D8DEE9;
+$gray: #4C566A;
+$medgray: #434C5E;
+$darkgray: #3B4252;
+$black: #2E3440;
+
+$color1: #BF616A;
+$color2: #D08770;
+$color3: #EBCB8B;
+$color4: #A3BE8C;
+$color5: #B48EAD;
+$color6: #8FBCBB;
+$color7: #88C0D0;
+$color8: #81A1C1;
+$color9: #5E81AC;
+
+button {
+	padding: 6px;
+}
+
+// Dash to seperate widgets
+.dash {
+	background-color: $black;
+	padding: 2px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.sys_box {
+    border-radius: 16px;
+    margin: 10px;
+}
+
+.sys_icon_net, .sys_icon_cpu, .sys_icon_mem, .sys_icon_disk {
+	padding-right: 5px;
+}
+
+// Volume
+.volume {
+	color: $color5;
+	border-radius: 10px;
+}
+
+.volume_icon {
+	font-size: 20;
+	margin: 18px;
+	color: $color9;
+	padding-right: 5px;
+}
+
+.volume_perc {
+	color: $color9;
+	padding-top: 6px;
+}
+
+// Network
+
+.sys_net {
+	color: $color5;
+	border-radius: 10px;
+}
+
+.sys_icon_net {
+	font-size: 20;
+	margin: 17px;
+	color: $color9;
+	padding-right: 4px;
+}
+
+.net_name {
+	color: $color9;
+	padding-top: 6px;
+}
+
+// CPU
+
+.sys_cpu {
+	color: $color5;
+	border-radius: 10px;
+}
+
+.sys_icon_cpu {
+	font-size: 20;
+	margin: 16px;
+	color: $color9;
+	padding-right: 7px;
+}
+
+.cpu_perc {
+	color: $color9;
+	padding-top: 6px;
+}
+
+// Memory
+
+.sys_mem {
+	color: $color5;
+	border-radius: 10px;
+}
+
+.sys_icon_mem {
+	font-size: 20;
+	margin: 17px;
+    color: $color9;
+	padding-right: 3px;
+}
+
+.mem_perc {
+	color: $color9;
+	padding-top: 6px;
+}
+
+// Disk
+
+.sys_disk {
+	color: $color5;
+	border-radius: 10px;
+}
+
+.sys_icon_disk {
+	font-size: 20;
+	margin: 17px;
+    color: $color9;
+	padding-right: 4px;
+}
+
+.disk_perc {
+	color: $color9;
+	padding-top: 6px;
+}
+
+// Hyprland
+.occupied {
+    color: $color9;
+}
+
+.empty {
+    color: $darkgray;
+}
+
+.current {
+    color: $color5;
+}
+
+.workspace-diamond {
+	font-size: 30px;
+}
+
+// Time
+
+.date {
+	color: $color9;
+	font-size: 14px;
+	font-weight: bold;
+	border-radius: 10px;
+}
+
+.time-container {
+	margin-bottom: 10px;
+}
+
+.clock-container {
+	margin-bottom: 10px;
+}
+
+.clock-top, .clock-bottom {
+	font-size: 30px;
+	font-weight: bold;
+	color: $color5;
+}
+
+.clock-top {
+	padding-top: 6px;
+}
+
+// Power
+
+.power {
+	margin: 10px;
+	padding: 10px;
+	margin-top: 233px;
+}
+
+.poweroff {
+	color: $color1;
+	font-size: 30px;
+}
+
+.reboot {
+	color: $color2;
+	font-size: 30px;
+}

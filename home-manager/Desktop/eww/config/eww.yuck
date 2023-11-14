@@ -1,0 +1,161 @@
+(defpoll checkVolume :interval "2s" :initial "" "amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2; print $4}' | tr -d '%' > ~/.config/eww/scripts/volume")
+(deflisten volume :initial "0" "~/.config/eww/scripts/line-follow ~/.config/eww/scripts/volume 1")
+(deflisten mute :initial "off" "~/.config/eww/scripts/line-follow ~/.config/eww/scripts/volume 2")
+
+(defpoll SSID :interval "10s" "iw dev wlp6s0 link | grep SSID | xargs | cut -d ':' -f 2 | xargs")
+(defpoll SIGNAL :interval "10s" "echo $(( ($(iw dev wlp6s0 link | grep signal | xargs | cut -d ':' -f 2 | xargs | cut -d ' ' -f 1) + 110) * 10 / 7 ))" )
+
+(defvar powermenu_show false)
+
+;; Hyprland
+(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces")
+(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-workspace")
+
+;; Widgets
+
+(defwidget dash []
+    (box :class "dash" :orientation "h")
+)
+
+(defwidget workspaces []
+  (eventbox :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
+    (box :space-evenly true :orientation "v"
+      (for workspace in workspaces
+        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}" :cursor "pointer"
+          (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+               (label :class "workspace-diamond" :text "${workspace.id == current_workspace ? "󰣏" : "󱀝"}")
+            )
+          )
+        )
+      )
+    )
+  )
+
+(defwidget time[]
+  (box :class "time-container" :orientation "v" :space-evenly "false" :halign "center"
+       (box :class "clock-container" :orientation "v" :space-evenly "false" :halign "center"
+            (label :class "clock-top" :text "${formattime(EWW_TIME, '%H')}")
+            (label :class "clock-bottom" :text "${formattime(EWW_TIME, '%M')}"))
+       (box :orientation "v" :halign "center"
+            (label :class "date" :text "${formattime(EWW_TIME, '%a')}")
+            (label :class "date" :text "${formattime(EWW_TIME, '%d')}")
+            (label :class "date" :text "${formattime(EWW_TIME, '%b')}"))))
+
+(defwidget volume[]
+    (eventbox :onscroll "bash ~/.config/eww/scripts/change-volume {}" :onclick "amixer sset Master toggle | grep Left: | awk -F'[][]' '{ print $2; print $4 }' | tr -d '%' > ~/.config/eww/scripts/volume " :cursor "pointer"
+    (box :class "sys_box" :orientation "v" :space-evenly "false" :hexpand "false" :vexpand "false"
+            (circular-progress
+                    :value "${volume}"
+                    :class "volume"
+                    :thickness 3
+                (label :text "${mute == "off" ? "󰝟" : "󰕾"}"
+                    :class "volume_icon"
+                    :limit-width 4
+                    :show_truncated false
+                    :wrap false))
+            (label :class "volume_perc" :halign "center" :text "${volume}${checkVolume}%")
+        )
+    )
+  )
+
+(defwidget system []
+    (box :orientation "v" :space-evenly "true" :hexpand "false" :vexpand "false" :halign "center"
+        (box :class "sys_box" :orientation "v" :space-evenly "false" :hexpand "false" :vexpand "false"
+                    (circular-progress
+                    :value "${SIGNAL == "" ? "0" : SIGNAL}"
+                    :class "sys_net"
+                    :thickness 3
+                    (label :text "󰖩"
+                            :class "sys_icon_net"
+                            :xalign 0))
+                (label :class "net_name" :halign "center" :text "${SSID}" :limit-width 8 :wrap false)
+        )
+        (box :class "sys_box" :orientation "v" :space-evenly "false" :hexpand "false" :vexpand "false"
+            (circular-progress
+                    :value "${round(EWW_CPU.avg, 0)}"
+                    :class "sys_cpu"
+                    :thickness 3
+                (label :text ""
+                    :class "sys_icon_cpu"
+                    :xalign 0))
+            (label :class "cpu_perc" :halign "center" :text "${round(EWW_CPU.avg, 0)}%")
+        )
+        (box :class "sys_box" :orientation "v" :space-evenly "false" :hexpand "false" :vexpand "false"
+            (circular-progress
+                    :value "${round(EWW_RAM.used_mem_perc, 0)}"
+                    :class "sys_mem"
+                    :thickness 3
+              (label :text ""
+                    :class "sys_icon_mem"
+                    :xalign 0))
+            (label :class "mem_perc" :halign "center" :text "${round(EWW_RAM.used_mem_perc, 0)}%")
+        )
+        (box :class "sys_box" :orientation "v" :space-evenly "false" :hexpand "false" :vexpand "false"
+            (circular-progress
+                    :value "${round(EWW_DISK["/"].used_perc, 0)}"
+                    :class "sys_disk"
+                    :thickness 3
+              (label :text ""
+                    :class "sys_icon_disk"
+                    :xalign 0))
+            (label :class "disk_perc" :halign "center" :text "${round(EWW_DISK["/"].used_perc, 0)}%")
+        )
+    )
+)
+
+(defwidget powermenu []
+  (box :class "power"
+    (eventbox
+              :onhover "eww update powermenu_show=true"
+              :onhoverlost "eww update powermenu_show=false"
+              :cursor "pointer"
+                  (box :space-evenly false :orientation "v"
+                    (revealer :reveal "${powermenu_show}"
+                              :duration "500ms"
+                              (box :space-evenly true :orientation "v"
+                              (eventbox :class "sleep"
+                                        :onclick "systemctl suspend"
+                                        :cursor "pointer"
+                                        (label :text "󰤄" :class "reboot"))
+                              (eventbox :class "reboot"
+                                        :onclick "reboot"
+                                        :cursor "pointer"
+                                        (label :text "" :class "reboot"))
+                              ))
+                    (eventbox :class "poweroff"
+                              :onclick "poweroff"
+                              :cursor "pointer"
+                              (label :text "󰐥"
+                            :class "poweroff"
+                            :justify "center"))
+                    ))
+
+
+))
+
+(defwidget right []
+    (box :class "right" :orientation "v" :space-evenly "false"
+        (time)
+        (dash)
+        (workspaces)
+        (dash)
+        (volume)
+        (system)
+        (powermenu)
+    )
+)
+
+(defwindow sidebar
+    :monitor 0
+    :geometry (geometry :x "0px"
+                        :y "0px"
+                        :width "70px"
+                        :height "100%"
+                        :anchor "right center")
+    :stacking "fg"
+    :windowtype "dock"
+    :exclusive true
+        (box
+        (right)
+    )
+)
