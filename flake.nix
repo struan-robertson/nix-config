@@ -10,16 +10,11 @@
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Hyprland
-    # hyprland.url = "github:hyprwm/Hyprland";
-    # hyprland.inputs.nixpkgs.follows = "nixpkgs";
-
   };
 
   outputs = { nixpkgs,
               nixpkgs-unstable,
               home-manager, 
-              # hyprland,
               ... }@inputs: {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
@@ -45,7 +40,7 @@
     };
 
     # home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#struan@nixlaptop'
+    # Available through 'home-manager --flake .#struan@nix'
     homeConfigurations = {
       "struan@nix" = home-manager.lib.homeManagerConfiguration {
 
