@@ -32,12 +32,6 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDbFfKkd0Q8eVe6MvjHZR4TVLUvc5saUifgd7WwAj5Be struanrobertson@protonmail.com"
   ];
 
-  # Allow brillo to change brightness settings
-  services.udev = {
-    enable = true;
-    packages = [ pkgs.brillo ];
-  };
-
   services.mullvad-vpn.enable = true;
 
 }

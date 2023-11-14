@@ -78,6 +78,7 @@
     mate.engrampa
 
     pkgs-unstable.yazi
+    pkgs-unstable.grimblast
   ];
 
 

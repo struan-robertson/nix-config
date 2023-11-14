@@ -73,12 +73,8 @@
 
   home.packages = with pkgs; [
     swaybg
-    wob
     mako
     pamixer
-
-    wluma
-    brillo
   ];
 
 
