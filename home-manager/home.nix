@@ -72,6 +72,7 @@
     libreoffice
     powertop
     imv
+    kitty
 
     # For Thunar Archvives
     mate.engrampa
