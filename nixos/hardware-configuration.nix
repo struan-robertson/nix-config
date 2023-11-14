@@ -38,13 +38,13 @@
   fileSystems."/home/struan/Vault" = {
     device = "/dev/disk/by-uuid/49d4d1c8-6ffe-4bc8-9946-a0284d3d692c";
     fsType = "btrfs";
-    options = [ "compress=zstd" "noatime" ];
+    options = [ "compress=zstd" "noatime" "x-gvfs-name=Vault" ];
   };
 
   fileSystems."/home/struan/Extra" = {
     device = "/dev/disk/by-uuid/33fd3e32-1610-43d0-930d-4f90ed928c69";
     fsType = "btrfs";
-    options = [ "compress=zstd" "noatime" ];
+    options = [ "compress=zstd" "noatime" "x-gvfs-name=Extra" ];
   };
 
   swapDevices =
