@@ -43,6 +43,7 @@
     # :lang rust
     cargo
     rustc
+    rust-analyzer
 
     # :lang org
     graphviz
@@ -58,9 +59,23 @@
 
     # :lang python
     python3
+    black
+    python311Packages.pyflakes
+    isort
+    pipenv
+
+
+    # :lang sh
+    shfmt
 
     # :lang latex & :lang org
     texlive.combined.scheme-medium
+
+    # :tools docker
+    dockfmt
+
+    # :tool spell
+    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
     
   ];
 }

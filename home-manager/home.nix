@@ -66,7 +66,6 @@
     pavucontrol
     gnumake
     cmake
-    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
     zotero
     sioyek
     libreoffice
@@ -79,7 +78,6 @@
 
     pkgs-unstable.yazi
   ];
-
 
   programs.firefox.enable = true;
 
