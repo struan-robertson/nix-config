@@ -7,19 +7,14 @@
 
     # Import hardware configuration
     # Note that this has been modified from auto generated version
-    ./hardware-configuration.nix
+    ./Device/hardware-configuration.nix
+    ./Device/graphics.nix
+    ./Device/networking.nix
+    ./Device/security.nix
+    ./Device/sound.nix
 
-    ./fonts.nix
-
-    ./security.nix
-
-    ./environment.nix
-
-    ./networking.nix
-
-    ./sound.nix
-
-    ./graphics.nix
+    ./System/fonts.nix
+    ./System/environment.nix
 
     ./Applications/thunar.nix
     ./Applications/syncthing.nix
