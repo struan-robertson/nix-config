@@ -99,6 +99,8 @@
   # Enable fish shell for all users
   programs.fish.enable = true;
 
+  programs.hyprland.enable = true;
+
   users.users.struan = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];

@@ -1,11 +1,12 @@
 { inputs, pkgs, pkgs-unstable, config, ... }:
 {
 
-  imports = [ inputs.hyprland.homeManagerModules.default ];
+  # imports = [ inputs.hyprland.homeManagerModules.default ];
 
-  wayland.windowManager.hyprland.enable = true;
+  # wayland.windowManager.hyprland.enable = true;
 
-  wayland.windowManager.hyprland.extraConfig = builtins.readFile ./hyprland.conf;
+  # wayland.windowManager.hyprland.extraConfig = builtins.readFile ./hyprland.conf;
+  xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
 
   programs.swaylock = {
     enable = true;
