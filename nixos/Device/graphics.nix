@@ -9,17 +9,22 @@
     rocm-opencl-icd
     rocm-opencl-runtime
 
-    amdvlk
+    # amdvlk
   ];
 
-  hardware.opengl.extraPackages32 = with pkgs; [
-    driversi686Linux.amdvlk
-  ];
+  # hardware.opengl.extraPackages32 = with pkgs; [
+  #   driversi686Linux.amdvlk
+  # ];
 
   hardware.opengl = {
+
+    # Mesa
     enable = true;
+
+    # Vulkan
     driSupport = true;
     driSupport32Bit = true;
+
   };
 
   

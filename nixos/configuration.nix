@@ -114,6 +114,9 @@
     extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
   };
 
+  # Enable flatpak
+  services.flatpak.enable = true;
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
 
