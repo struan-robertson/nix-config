@@ -18,6 +18,7 @@
 
     ./Applications/thunar.nix
     ./Applications/syncthing.nix
+    ./Applications/steam.nix
   ];
 
   nixpkgs = {
