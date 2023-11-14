@@ -5,6 +5,7 @@
 
   # wayland.windowManager.hyprland.enable = true;
 
+  # Even though hyprland does not require root, run from nixos as need graphics drivers to sync
   # wayland.windowManager.hyprland.extraConfig = builtins.readFile ./hyprland.conf;
   xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
 
@@ -41,36 +42,36 @@
     };
   };
 
-  services.swayidle = {
-    enable = true;
-    systemdTarget = "hyprland-session.target";
-    timeouts = [
-      {
-        command = "${config.programs.swaylock.package}/bin/swaylock -f";
-        timeout = 180;
-      }
-      {
-        command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
-        resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
-        timeout = 360;
-      }
-      # TODO fix sleep after time
-      # {
-      #   command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on && systemctl suspend";
-      #   timeout = 420;
-      # }
-    ];
-    events = [
-      {
-        event = "before-sleep";
-        command = "${config.programs.swaylock.package}/bin/swaylock -f";
-      }
-      {
-        event = "lock";
-        command = "${config.programs.swaylock.package}/bin/swaylock -f";
-      }
-    ];
-  };
+#  services.swayidle = {
+#    enable = true;
+#    systemdTarget = "hyprland-session.target";
+#    timeouts = [
+#      {
+#        command = "${config.programs.swaylock.package}/bin/swaylock -f";
+#        timeout = 180;
+#      }
+#      {
+#        command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
+#        resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
+#        timeout = 360;
+#      }
+#      # TODO fix sleep after time
+#      # {
+#      #   command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on && systemctl suspend";
+#      #   timeout = 420;
+#      # }
+#    ];
+#    events = [
+#      {
+#        event = "before-sleep";
+#        command = "${config.programs.swaylock.package}/bin/swaylock -f";
+#      }
+#      {
+#        event = "lock";
+#        command = "${config.programs.swaylock.package}/bin/swaylock -f";
+#      }
+#    ];
+#  };
 
   home.packages = with pkgs; [
     swaybg

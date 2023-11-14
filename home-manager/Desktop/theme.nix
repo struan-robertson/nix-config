@@ -8,6 +8,8 @@
     size = 22;
   };
 
+  home.file.".icons/default".source = "${pkgs.bibata-cursors}/share/icons/Bibata-Original-Classic";
+
   gtk = {
     enable = true;
     iconTheme = {

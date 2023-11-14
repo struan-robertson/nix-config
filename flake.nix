@@ -11,15 +11,15 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Hyprland
-    hyprland.url = "github:hyprwm/Hyprland";
-
+    # hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
   };
 
   outputs = { nixpkgs,
               nixpkgs-unstable,
               home-manager, 
-              hyprland, 
+              # hyprland,
               ... }@inputs: {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'

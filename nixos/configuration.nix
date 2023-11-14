@@ -18,7 +18,6 @@
 
     ./Applications/thunar.nix
     ./Applications/syncthing.nix
-    ./Applications/steam.nix
   ];
 
   nixpkgs = {
@@ -99,8 +98,6 @@
   # Enable fish shell for all users
   programs.fish.enable = true;
 
-  programs.hyprland.enable = true;
-
   users.users.struan = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
@@ -111,10 +108,14 @@
 
   services.tailscale.enable = true;
 
-  # Hyprland xdg portal
+  # Hyprland
+  programs.hyprland.enable = true;
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
   };
 
   # Enable flatpak
