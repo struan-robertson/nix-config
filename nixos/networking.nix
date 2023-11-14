@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  networking.hostName = "nixlaptop";
+  networking.hostName = "nix";
   networking.networkmanager.enable = true;
 }
