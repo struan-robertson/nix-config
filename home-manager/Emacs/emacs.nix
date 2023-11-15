@@ -32,6 +32,8 @@
     pinentry-emacs
     zstd
 
+    nodejs_20
+
     # :lang web
     html-tidy
     nodePackages_latest.stylelint
@@ -63,7 +65,7 @@
     python311Packages.pyflakes
     isort
     pipenv
-
+    nodePackages_latest.pyright
 
     # :lang sh
     shfmt
