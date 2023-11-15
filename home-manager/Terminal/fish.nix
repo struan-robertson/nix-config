@@ -55,6 +55,7 @@
     shellInit = ''
       set fish_key_bindings fish_user_key_bindings 
       zoxide init fish | source
+      direnv hook fish | source
       set EDITOR "emacsclient -t"
       ''; 
             
@@ -68,5 +69,10 @@
   programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
+  };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
   };
 }
