@@ -27,5 +27,18 @@
 
   };
 
+  environment.systemPackages = with pkgs; [
+    libdrm
+
+    # rocm
+    rocminfo
+    rocm-core
+    rocm-runtime
+
+    hip
+
+    miopen
+    miopen-hip
+  ];
   
 }
