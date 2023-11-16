@@ -18,6 +18,7 @@
 
     ./Terminal/fish.nix
     ./Terminal/wezterm.nix
+    ./Terminal/ipython.nix
 
     ./Emacs/emacs.nix
 
