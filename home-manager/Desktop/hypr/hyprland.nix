@@ -8,6 +8,7 @@
   # Even though hyprland does not require root, run from nixos as need graphics drivers to sync
   # wayland.windowManager.hyprland.extraConfig = builtins.readFile ./hyprland.conf;
   xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
+  xdg.configFile."hypr/toggle_eww.sh".source = ./toggle_eww.sh;
 
   programs.swaylock = {
     enable = true;
