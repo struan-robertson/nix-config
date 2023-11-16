@@ -74,6 +74,11 @@
     imv
     kitty
 
+    radeontop
+    lm_sensors
+    nvtop
+    killall
+
     # For Thunar Archvives
     mate.engrampa
 
