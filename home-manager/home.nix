@@ -78,6 +78,7 @@
     lm_sensors
     nvtop
     killall
+    usbutils
 
     # For Thunar Archvives
     mate.engrampa
