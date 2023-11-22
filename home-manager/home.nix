@@ -73,6 +73,7 @@
     powertop
     imv
     kitty
+    just
 
     radeontop
     lm_sensors
