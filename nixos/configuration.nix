@@ -12,6 +12,7 @@
     ./Device/networking.nix
     ./Device/security.nix
     ./Device/sound.nix
+    ./Device/bluetooth.nix
 
     ./System/fonts.nix
     ./System/environment.nix
