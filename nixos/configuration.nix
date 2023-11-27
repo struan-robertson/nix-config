@@ -127,6 +127,8 @@
   # Enable flatpak
   services.flatpak.enable = true;
 
+  programs.kdeconnect.enable = true;
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
 
