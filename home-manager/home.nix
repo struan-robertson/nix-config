@@ -95,6 +95,7 @@
     enable = true;
     userName = "Struan Robertson";
     userEmail = "contact@struanrobertson.co.uk";
+    lfs.enable = true;
   };
 
   programs.home-manager.enable = true;
