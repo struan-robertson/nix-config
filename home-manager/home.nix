@@ -70,16 +70,18 @@
     zotero
     sioyek
     libreoffice
-    powertop
     imv
     kitty
-    just
+    calibre
 
     radeontop
     lm_sensors
     nvtop
     killall
     usbutils
+    bmon
+    just
+    powertop
 
     # For Thunar Archvives
     mate.engrampa
