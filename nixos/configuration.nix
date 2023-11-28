@@ -19,6 +19,7 @@
 
     ./Applications/thunar.nix
     ./Applications/syncthing.nix
+    ./Applications/podman.nix
   ];
 
   nixpkgs = {
