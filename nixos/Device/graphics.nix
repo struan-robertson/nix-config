@@ -7,6 +7,7 @@
 
   hardware.opengl.extraPackages = with pkgs; [
     rocmPackages.clr.icd
+    rocmPackages.clr
 
     # amdvlk
   ];
@@ -26,18 +27,18 @@
 
   };
 
-  environment.systemPackages = with pkgs; [
-    libdrm
+  # environment.systemPackages = with pkgs; [
+  #   libdrm
 
-    # rocm
-    rocmPackages.rocminfo
-    rocmPackages.rocm-core
-    rocmPackages.rocm-runtime
+  #   # rocm
+  #   rocmPackages.rocminfo
+  #   rocmPackages.rocm-core
+  #   rocmPackages.rocm-runtime
 
-    rocmPackages.clr
+  #   rocmPackages.clr
 
-    rocmPackages.miopen
-    rocmPackages.miopen-hip
-  ];
+  #   rocmPackages.miopen
+  #   rocmPackages.miopen-hip
+  # ];
   
 }
