@@ -17,7 +17,8 @@
     ./Desktop/xdg.nix
 
     ./Terminal/fish.nix
-    ./Terminal/wezterm.nix
+    # ./Terminal/wezterm.nix
+    ./Terminal/kitty.nix
     ./Terminal/ipython.nix
 
     ./Emacs/emacs.nix
@@ -71,7 +72,6 @@
     sioyek
     libreoffice
     imv
-    kitty
     calibre
 
     radeontop

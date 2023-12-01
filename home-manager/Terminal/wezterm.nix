@@ -1,9 +1,9 @@
-{ config, lib, pkgs-unstable, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   programs.wezterm = {
     enable = true;
-    package = pkgs-unstable.wezterm;
+    package = pkgs.wezterm;
     extraConfig = ''
       local wezterm = require 'wezterm'
 
