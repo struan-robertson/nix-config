@@ -2,7 +2,7 @@
 
 {
   systemd.tmpfiles.rules = [
-    "L+ /opt/rocm/hip - - - - ${pkgs.hip}"
+    "L+ /opt/rocm/hip - - - - ${pkgs.rocmPackages.clr}"
   ];
 
   hardware.opengl.extraPackages = with pkgs; [
@@ -31,14 +31,14 @@
     libdrm
 
     # rocm
-    rocminfo
-    rocm-core
-    rocm-runtime
+    rocmPackages.rocminfo
+    rocmPackages.rocm-core
+    rocmPackages.rocm-runtime
 
-    hip
+    rocmPackages.clr
 
-    miopen
-    miopen-hip
+    rocmPackages.miopen
+    rocmPackages.miopen-hip
   ];
   
 }
