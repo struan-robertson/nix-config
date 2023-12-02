@@ -7,9 +7,14 @@
     theme = "Nord";
     font = {
       name = "FiraCode Nerd Font";
-      size = 8;
+      size = 12;
     };
 
+    settings = {
+      scrollback_lines = 10000;
+      enable_audio_bell = "no";
+      window_padding_width = "4 8";
+    };
 
   };
 }
