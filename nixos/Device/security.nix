@@ -20,6 +20,13 @@
     enableSSHSupport = true;
   };
 
+  security.pam.loginLimits = [{
+    domain = "*";
+    type = "-";
+    item = "nofile";
+    value = "8192";
+  }];
+
   # SSH config
   services.openssh = {
     enable = true;
