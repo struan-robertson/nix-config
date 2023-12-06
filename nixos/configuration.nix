@@ -13,6 +13,7 @@
     ./Device/security.nix
     ./Device/sound.nix
     ./Device/bluetooth.nix
+    ./Device/openrgb.nix
 
     ./System/fonts.nix
     ./System/environment.nix
