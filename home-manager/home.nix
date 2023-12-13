@@ -82,6 +82,7 @@
     bmon
     just
     powertop
+    dua
 
     # For Thunar Archvives
     mate.engrampa
