@@ -73,6 +73,7 @@
     libreoffice
     imv
     calibre
+    darktable
 
     radeontop
     lm_sensors
