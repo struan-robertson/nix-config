@@ -13,6 +13,12 @@ home-switch-debug:
 update:
     nix flake update
 
+upgrade:
+    nix flake update
+    nixos-rebuild switch --flake .\#nix --use-remote-sudo
+    home-manager switch --flake .\#struan@nix
+
+
 history:
     nix profile history --profile /nix/var/nix/profiles/system
 
