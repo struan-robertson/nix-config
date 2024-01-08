@@ -59,7 +59,6 @@
         set fish_key_bindings fish_user_key_bindings
       end
 
-      direnv hook fish | source
       set EDITOR "emacsclient -t"
       ''; 
             
