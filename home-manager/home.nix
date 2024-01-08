@@ -74,6 +74,8 @@
     imv
     calibre
     darktable
+    keepassxc
+    # csvlens not in nixpkgs yet
 
     radeontop
     lm_sensors
