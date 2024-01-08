@@ -1,22 +1,28 @@
 { config, lib, pkgs, ... }:
 
 {
-  xdg.enable = true;
 
-  xdg.userDirs = {
+  xdg = {
     enable = true;
-    createDirectories = true;
-  };
 
-  xdg.mime.enable = true;
-  xdg.systemDirs.data =
-    [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
-
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "application/pdf" = [ "sioyek.desktop" "firefox.desktop" ];
+    userDirs = {
+      enable = true;
+      createDirectories = true;
     };
+
+    systemDirs.data =
+      [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
+
+    mime.enable = true;
+
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "application/pdf" = [ "sioyek.desktop" "firefox.desktop" ];
+        "text/html" = [ "firefox.desktop" ];
+      };
+    };
+
   };
 
   home.sessionVariables = { SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent"; };
