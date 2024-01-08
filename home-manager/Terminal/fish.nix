@@ -53,7 +53,12 @@
     }; 
 
     shellInit = ''
-      set fish_key_bindings fish_user_key_bindings 
+
+      # Dont want to have vi keybindings if running in emacs-vterm
+      if test "$TERM" = "xterm-kitty"
+        set fish_key_bindings fish_user_key_bindings
+      end
+
       zoxide init fish | source
       direnv hook fish | source
       set EDITOR "emacsclient -t"
