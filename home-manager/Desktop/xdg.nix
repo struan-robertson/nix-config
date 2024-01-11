@@ -14,7 +14,6 @@
       [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
 
     mime.enable = true;
-
     mimeApps = {
       enable = true;
       defaultApplications = {
@@ -22,6 +21,8 @@
         "text/html" = [ "firefox.desktop" ];
       };
     };
+
+    xdg.configFile."mimeapps.list".force = true;
 
   };
 
