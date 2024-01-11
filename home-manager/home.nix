@@ -76,6 +76,7 @@
     darktable
     keepassxc
     # csvlens not in nixpkgs yet
+    gimp
 
     radeontop
     lm_sensors
