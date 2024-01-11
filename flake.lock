@@ -37,6 +37,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-custom": {
+      "locked": {
+        "lastModified": 1704994970,
+        "narHash": "sha256-IikfN5toZq+CUcEXQUODLYwjfAgdB5hrMmuJ1+l8fdc=",
+        "owner": "struan-robertson",
+        "repo": "nixpkgs",
+        "rev": "a2f82b9b840d6120464b853b8c6efb462899c716",
+        "type": "github"
+      },
+      "original": {
+        "owner": "struan-robertson",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1704722960,
@@ -57,6 +72,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-custom": "nixpkgs-custom",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
     }
