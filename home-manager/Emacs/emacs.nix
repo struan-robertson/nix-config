@@ -60,9 +60,9 @@
     julia-bin
 
     # :lang python
-    python3
+    # python3
+    (python3.withPackages(ps: with ps; [pyflakes numpy matplotlib ipython]))
     black
-    python311Packages.pyflakes
     isort
     pipenv
     nodePackages_latest.pyright
@@ -70,7 +70,7 @@
     # :lang sh
     shfmt
 
-    # :lang latex & :lang org
+    # :lang org
     texlive.combined.scheme-full
 
     # :tools docker
