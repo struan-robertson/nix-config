@@ -71,7 +71,7 @@
     shfmt
 
     # :lang latex & :lang org
-    texlive.combined.scheme-medium
+    texlive.combined.scheme-full
 
     # :tools docker
     dockfmt
