@@ -61,7 +61,7 @@
 
     # :lang python
     # python3
-    (python3.withPackages(ps: with ps; [pyflakes numpy matplotlib ipython]))
+    (python3.withPackages(ps: with ps; [pyflakes numpy matplotlib ipython debugpy anyqt]))
     black
     isort
     pipenv
