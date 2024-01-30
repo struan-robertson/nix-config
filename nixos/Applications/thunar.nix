@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pkgs-custom, ... }:
 
 {
   programs.dconf.enable = true;
@@ -10,5 +10,13 @@
     ];
   };
   services.gvfs.enable = true;
-  services.tumbler.enable = true;
+
+  # TODO: remove when libopenraw is added to tumbler
+  # services.tumbler.enable = true;
+  environment.systemPackages = with pkgs-custom.xfce; [
+    tumbler
+  ];
+  services.dbus.packages = with pkgs-custom.xfce; [
+    tumbler
+  ];
 }
