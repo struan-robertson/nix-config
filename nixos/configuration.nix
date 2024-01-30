@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{ inputs, outputs, lib, config, pkgs, pkgs-custom,... }: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules from other flakes (such as nixos-hardware):
@@ -31,10 +31,47 @@
 
       # Or define it inline, for example:
       # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
+      #   hi = prev.hello.overrideAttrs (oldAttrs: {
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
+
+      # (final: prev: {
+      #   pipewire = prev.pipewire.overrideAttrs (oldAttrs: rec {
+      #     version = "1.0.1";
+
+      #     src = pkgs.fetchFromGitLab {
+      #       domain = "gitlab.freedesktop.org";
+      #       owner = "pipewire";
+      #       repo = "pipewire";
+      #       # rev = version;
+      #       rev = "3958bed5c3c2446687d667ab3a33710c79840ce3";
+      #       hash = "sha256-mBwGcfdM8dDwfBbnYlSKASP+vSpEQfA2NwxALoEM9xw";
+      #     };
+
+      #     mesonFlags = prev.pipewire.mesonFlags ++ [ "-Dsnap=disabled" ];
+      #   });
+      # })
+
+      # (final: prev: {
+      #   libcamera = prev.libcamera.overrideAttrs (oldAttrs: rec {
+      #     version = "0.2.0";
+
+      #     src = pkgs.fetchgit {
+      #       url = "https://git.libcamera.org/libcamera/libcamera.git";
+      #       rev = "v${version}";
+      #       hash = "sha256-x0Im9m9MoACJhQKorMI34YQ+/bd62NdAPc2nWwaJAvM=";
+      #     };
+
+      #     patches = [];
+      #   });
+      # })
+
+      (final: prev: {
+        tumbler = prev.tumbler.overrideAttrs (oldAttrs: rec {
+          buildInputs = prev.tumbler.buildInputs ++ [ pkgs-custom.libopenraw ];
+        });
+      })
 
     ];
     # Configure your nixpkgs instance
