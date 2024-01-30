@@ -39,17 +39,17 @@
     },
     "nixpkgs-custom": {
       "locked": {
-        "lastModified": 1706556136,
-        "narHash": "sha256-PlHudWq7j6dgWneK7n+P3slYB87NeCGtQffktMpBQbg=",
-        "ref": "refs/heads/master",
-        "rev": "5763bde8fd0306162e54c84a23193410c0d07169",
-        "revCount": 577932,
-        "type": "git",
-        "url": "file:///home/struan/Development/Nix/nixpkgs"
+        "lastModified": 1706570662,
+        "narHash": "sha256-K7oiYEz5a4CqftnZS2Fb2DN2gMI0H0X1j9t1kvC6QnI=",
+        "owner": "struan-robertson",
+        "repo": "nixpkgs",
+        "rev": "7ea2f97be013823a798a0ac5d5a08574dcfb678d",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/struan/Development/Nix/nixpkgs"
+        "owner": "struan-robertson",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs-unstable": {
