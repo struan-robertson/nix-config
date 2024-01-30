@@ -112,9 +112,7 @@
   services.tailscale.enable = true;
 
   # Dont need root to access android devices
-  services.udev.packages = with pkgs; [
-    android-udev-rules
-  ];
+  services.udev.packages = with pkgs; [ android-udev-rules ];
 
   # Hyprland
   programs.hyprland.enable = true;
