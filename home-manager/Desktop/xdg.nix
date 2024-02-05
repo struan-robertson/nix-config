@@ -19,6 +19,8 @@
       defaultApplications = {
         "application/pdf" = [ "sioyek.desktop" "firefox.desktop" ];
         "text/html" = [ "firefox.desktop" ];
+        "image/jpg" = [ "imv-dir.desktop" ];
+        "image/png" = [ "imv-dir.desktop" ];
       };
     };
 
