@@ -1,18 +1,14 @@
-{ pkgs, pkgs-unstable, config, lib, ... }:
-{
-  home = {
-    sessionPath = [ "${config.xdg.configHome}/emacs/bin" ];
-  };
+{ pkgs, pkgs-unstable, config, lib, ... }: {
+  home = { sessionPath = [ "${config.xdg.configHome}/emacs/bin" ]; };
 
   programs.emacs = {
     enable = true;
     package = pkgs-unstable.emacs29-pgtk;
-    extraPackages = epkgs: [
-      epkgs.vterm
-    ];
+    extraPackages = epkgs: [ epkgs.vterm ];
   };
 
-  services.emacs.enable = true;
+  services.emacs = { enable = true; };
+  systemd.user.services.emacs.Service.LimitNOFILE = 8196;
 
   home.packages = with pkgs; [
     # DOOM Emacs dependencies
@@ -61,7 +57,8 @@
 
     # :lang python
     # python3
-    (python3.withPackages(ps: with ps; [pyflakes numpy matplotlib ipython debugpy anyqt]))
+    (python3.withPackages
+      (ps: with ps; [ pyflakes numpy matplotlib ipython debugpy anyqt ]))
     black
     isort
     pipenv
@@ -78,6 +75,6 @@
 
     # :tool spell
     (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
-    
+
   ];
 }
