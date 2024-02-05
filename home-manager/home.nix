@@ -75,8 +75,7 @@
     calibre
     darktable
     keepassxc
-    # csvlens not in nixpkgs yet
-    pkgs-custom.csvlens
+    pkgs-unstable.csvlens
     gimp
 
     radeontop
