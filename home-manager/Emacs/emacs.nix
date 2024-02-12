@@ -35,6 +35,9 @@
     nodePackages_latest.stylelint
     nodePackages_latest.js-beautify
 
+    # :lang php
+    phpactor
+
     # :lang sh
     shellcheck
 
