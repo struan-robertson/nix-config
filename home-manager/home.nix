@@ -91,6 +91,9 @@
     # For Thunar Archvives
     mate.engrampa
 
+    # Wine
+    wineWowPackages.waylandFull
+
     pkgs-unstable.yazi
   ];
 
