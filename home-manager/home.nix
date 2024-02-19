@@ -87,6 +87,7 @@
     just
     powertop
     dua
+    file
 
     # For Thunar Archvives
     mate.engrampa
