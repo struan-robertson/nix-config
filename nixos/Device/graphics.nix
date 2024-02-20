@@ -27,18 +27,25 @@
 
   };
 
-  # environment.systemPackages = with pkgs; [
-  #   libdrm
+  environment.systemPackages = with pkgs.rocmPackages; [
 
-  #   # rocm
-  #   rocmPackages.rocminfo
-  #   rocmPackages.rocm-core
-  #   rocmPackages.rocm-runtime
+    # rocm
+    rocminfo
+    rocm-core
+    rocm-runtime
 
-  #   rocmPackages.clr
+    miopen
 
-  #   rocmPackages.miopen
-  #   rocmPackages.miopen-hip
-  # ];
+    hipblas
+    hipsparse
+    rocsparse
+    rocrand
+    rocthrust
+    rocsolver
+    rocfft
+    hipcub
+    rocprim
+    rccl
+  ];
   
 }
