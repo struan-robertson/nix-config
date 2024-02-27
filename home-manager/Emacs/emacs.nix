@@ -56,7 +56,7 @@
     pandoc
 
     # :lang julia
-    julia-bin
+    pkgs-unstable.julia-bin
 
     # :lang python
     # python3
