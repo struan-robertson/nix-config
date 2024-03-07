@@ -82,6 +82,7 @@
     lm_sensors
     nvtop
     killall
+    tmux
     usbutils
     bmon
     just
