@@ -4,7 +4,7 @@
   programs.eww = {
     enable = true;
     configDir = ./config;
-    package = pkgs-unstable.eww-wayland;
+    package = pkgs-unstable.eww;
   };
 
   home.packages = with pkgs; [
