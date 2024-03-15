@@ -13,10 +13,13 @@
 
   # TODO: remove when libopenraw is added to tumbler
   # services.tumbler.enable = true;
+  programs.xfconf.enable = true;
+
   environment.systemPackages = with pkgs-custom.xfce; [
     tumbler
   ];
   services.dbus.packages = with pkgs-custom.xfce; [
     tumbler
   ];
+
 }
