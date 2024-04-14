@@ -90,6 +90,7 @@
     powertop
     dua
     file
+    tlrc
 
     # For Thunar Archvives
     mate.engrampa
