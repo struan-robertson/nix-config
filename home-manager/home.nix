@@ -77,6 +77,7 @@
     keepassxc
     pkgs-unstable.csvlens
     gimp
+    teams-for-linux
 
     radeontop
     lm_sensors
