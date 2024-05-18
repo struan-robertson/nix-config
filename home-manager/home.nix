@@ -78,6 +78,8 @@
     pkgs-unstable.csvlens
     gimp
     teams-for-linux
+    qbittorrent
+    mpv
 
     radeontop
     lm_sensors
